@@ -58,8 +58,8 @@
             <artifactId>maven-compiler-plugin</artifactId>
             <version>${compiler-plugin}</version>
             <configuration>
-                <target>maven.compiler.target</target>
-                <source>maven.compiler.source</source>
+                <target>${maven.compiler.target}</target>
+                <source>${maven.compiler.source}</source>
             </configuration>
         </plugin>
         <plugin>
@@ -68,7 +68,7 @@
             <version>${surefire-plugin.version}</version>
             <configuration>
                 <systemPropertyVariables>
-                    <base.url>https://otus.ru</base.url>
+                    <base.url>https://otus.home.kartushin.su</base.url>
                 </systemPropertyVariables>
             </configuration>
         </plugin>

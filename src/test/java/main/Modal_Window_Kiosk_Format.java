@@ -8,35 +8,36 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import pages.MainPage;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Test_one {
+
+public class Modal_Window_Kiosk_Format {
     private WebDriver driver;
 
 
     @BeforeEach
     public void setUpHEadless() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless"); // Включение headless режима
+        options.addArguments("--kiosk");
         driver = new ChromeDriver(options);
 
     }
 
+
     @Test
-    public void checkTest(){
-        driver.get("https://otus.home.kartushin.su/training.html");
-        WebElement inputText = driver.findElement(By.xpath("//*[@id='textInput']"));
-        inputText.sendKeys("ОТУС");
-        String enteredText = inputText.getAttribute("value");
-        assertEquals("ОТУС", enteredText, "Текст неверный!");
+    public void checkModalWind (){
+        MainPage mainPage = new MainPage(driver);
+        mainPage.open();
+        mainPage.clickOnModalWindow();
+        mainPage.checkTextModalWindow();
+
 
     }
 
     @AfterEach
     public void tearDown() {
-        // Закрытие браузера после теста
-        if (driver != null) {
+           if (driver != null) {
             driver.quit();
         }
     }

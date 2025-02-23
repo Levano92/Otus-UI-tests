@@ -31,12 +31,16 @@ public class WebDriverFactory {
             case "chrome":{
 
                 WebDriverManager.chromedriver().setup();
+                break;
             }
             case "FireFox":{
                 WebDriverManager.firefoxdriver().setup();
-
+                break;
+            }
+            default: {
+                throw new BrowserNorSupportedExeption(browser);
             }
         }
-        throw new BrowserNorSupportedExeption(browser);
+
     }
 }

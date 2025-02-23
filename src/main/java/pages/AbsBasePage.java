@@ -8,10 +8,11 @@ public abstract class AbsBasePage {
     private String path;
     public AbsBasePage(WebDriver driver, String path){
         this.driver = driver;
+        this.path = path;
     }
     public  void  open () {
 
-        driver.get("");
+        driver.get(System.getProperty("base.url") + path);
     }
 
 
